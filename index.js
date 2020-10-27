@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 // const logger = require('./middleware/logger');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const fileUpload = require('express-fileupload');
 // Route Files
 const  bootcamps = require('./routes/bootcamps');
 // Load env 
@@ -21,7 +22,7 @@ app.use(express.json())
 if(process.env.NODE_ENV == "development"){
     app.use(morgan('dev'));
 }
-
+app.use(fileUpload())
 // Mount Routers
 app.use('/api/v1/bootcamps',bootcamps)
 
