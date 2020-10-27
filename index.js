@@ -1,6 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const logger = require('./middleware/logger');
+// const logger = require('./middleware/logger');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 // Route Files
@@ -15,6 +15,8 @@ const PORT = process.env.PORT || 4200;
 
 const app = express();
 
+// Body Parser
+app.use(express.json())
 
 if(process.env.NODE_ENV == "development"){
     app.use(morgan('dev'));
